@@ -1,0 +1,40 @@
+.filterImage{
+    height: 15px;
+    width: 15px;
+}
+button{
+    padding: 8px;
+    border-radius: 5px;
+}
+button,input,select{
+    margin: 4px;
+}
+.search-input{
+    height: 20px;
+    width: 200px;
+    border-radius: 6px;
+}
+button:hover{
+    background-color: rgb(163, 163, 163);
+}
+.filterButton{
+    margin-right: auto;
+}
+.main{
+    padding: 10px;
+}
+table{
+    padding: 10px;
+}
+th,td{
+    border-bottom: 1px solid black;
+    text-align: center;
+    width: 25vw;
+    overflow-wrap: break-word;
+    overflow: auto;
+}
+.navigation-section{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
