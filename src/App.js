@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import { useState } from 'react';
+import OrderBook from './pages/OrderBook';
+import Trade from './pages/Trade';
 
 function App() {
+  
+  var buttonStyles = {
+    backgroundColor: 'lightblue',
+    color: 'black'
+  };
+
+
+  const [isTradeVisible, setIsTradeVisible] = useState(false);
+  const [isOrderBookVisible, setIsOrderBookVisible] = useState(true);
+
+
+  const hideTradeComponent = () =>{
+    setIsTradeVisible(false);
+    setIsOrderBookVisible(true);
+  }
+  const hideOrderBookComponent = () =>{
+    setIsOrderBookVisible(false);
+    setIsTradeVisible(true);
+  }
+
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>
+      <button style={buttonStyles} onClick={hideOrderBookComponent}>Trade</button>
+      <button style={buttonStyles} onClick={hideTradeComponent}>OrderBook</button>
+    </header>
+      {isOrderBookVisible && <OrderBook/>}
+      {isTradeVisible && <Trade/>}
+
     </div>
   );
 }
