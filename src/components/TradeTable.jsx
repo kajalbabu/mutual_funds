@@ -1,54 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TradeTable.css";
 import Button from "./Button";
-function TradeTable() {
-  const data = [
-    {
-      icon: "./assets/hdfc-bank-logo.svg",
-      exchange: "Equity",
-      capitalizations: "SMALL CAP FUND",
-      fundName: "Quant Small Cap Fund Growth Regular Plan",
-      rating: "4",
-      growth: "Growth",
-      category: "Top Rated",
-      oneYrReturn: "73.99%",
-      threeYrReturn: "45.71%",
-      fiveYrReturn: "38.69%",
-      currentNav: "₹243.86",
-      minSipInvestment: "₹1000",
-    },
-    {
-      icon: "./assets/hdfc-bank-logo.svg",
-      exchange: "Equity",
-      capitalizations: "MID CAP FUND",
-      fundName: "HDFC Mid Cap Opportunities Fund Growth Plan",
-      rating: "4",
-      growth: "Growth",
-      category: "Top Rated",
-      oneYrReturn: "57.79%",
-      threeYrReturn: "30.24%",
-      fiveYrReturn: "25.86%",
-      currentNav: "₹158.49",
-      minSipInvestment: "₹100",
-    },
-    {
-      icon: "./assets/hdfc-bank-logo.svg",
-      exchange: "Equity",
-      capitalizations: "FLEXI CAP FUND",
-      fundName: "HDFC Flexi Cap Fund Growth Plan",
-      rating: "4",
-      growth: "Growth",
-      category: "Top Rated",
-      oneYrReturn: "45.52%",
-      threeYrReturn: "25.52%",
-      fiveYrReturn: "21.22%",
-      currentNav: "₹1062.38",
-      minSipInvestment: "₹100",
-    },
-  ];
+function TradeTable({ filteredData }) {
   return (
-    <div>
-      <table>
+    <div className="table-wrapper">
+      <table className="trade-table">
         <thead>
           <tr>
             <td>Fund</td>
@@ -61,7 +17,38 @@ function TradeTable() {
           </tr>
         </thead>
         <tbody>
-          
+          {filteredData.map((item) => (
+            <tr key={item.fundName}>
+              <td>
+                <div className="fund-body">
+                  <img src={item.icon} alt="icon" width={50} />
+                  <div className="fund-name">
+                    <div className="fund-first-row">
+                      <span>{item.investmentType}</span>
+                      <span>.</span>
+                      <span> {item.subCategoryName}</span>
+                    </div>
+                    <div className="fund-second-row">{item.fundName}</div>
+                    <div className="fund-last-row">
+                      <span className="span-rating">
+                        {item.rating}
+                        <img src="./assets/star-rate-svgrepo-com.svg" alt="rating" width={10}/>
+                      </span>
+                      <span className="span-growth">{item.reInvestmentPlan}</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>{item.oneYrReturn}</td>
+              <td>{item.threeYrReturn}</td>
+              <td>{item.fiveYrReturn}</td>
+              <td>{item.currentNav}</td>
+              <td>{item.minSipInvestment}</td>
+              <td>
+                <Button />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

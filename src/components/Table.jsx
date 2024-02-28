@@ -311,10 +311,11 @@ export default function Table(){
                     {isHidden ? null : <Popup />
                     }
             <hr/>
-            {purchaseComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Purchased'} itemsPerPage={4}/>}
-            {withdrawComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Withdraw'} itemsPerPage={4}/>}
-            {switchComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Switch'} itemsPerPage={4}/>}
-            
+            <div className="table">
+                {purchaseComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Purchased'} itemsPerPage={4}/>}
+                {withdrawComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Withdraw'} itemsPerPage={4}/>}
+                {switchComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Switch'} itemsPerPage={4}/>}
+            </div>
         </div>
     )
 }
