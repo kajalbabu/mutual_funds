@@ -1,9 +1,14 @@
-import React from "react";
+import TradeFilter from "../components/TradeFilter";
+import TradeTable from "../components/TradeTable";
 
-export default function Trade(){
-    return(
-        <>
-            <h1>Trade Component</h1>
-        </>
-    )
+function Trade() {
+
+  return (
+    <div>
+      <TradeFilter/>
+      <TradeTable/>
+    </div>
+  );
 }
+
+export default Trade;

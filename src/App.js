@@ -12,8 +12,8 @@ function App() {
   };
 
 
-  const [isTradeVisible, setIsTradeVisible] = useState(false);
-  const [isOrderBookVisible, setIsOrderBookVisible] = useState(true);
+  const [isTradeVisible, setIsTradeVisible] = useState(true);
+  const [isOrderBookVisible, setIsOrderBookVisible] = useState(false);
 
 
   const hideTradeComponent = () =>{
