@@ -1,11 +1,11 @@
-header button{
+/* header button{
     margin: 10px;
     cursor: pointer;
     border-radius: 5px;
     border-width: thin;
     width: 100px;
     height: 40px;
-}
+} */
 
 
 /* .App {
@@ -34,17 +34,6 @@ header button{
   background-color: rgb(236, 238, 243);
   
 }
-<<<<<<< HEAD
-.App header{
-  margin-bottom: 10px;
-  padding: 20px 40px 40px 2px;
-  background-color: white;
-  width: 96.5vw;
-}
-h1{
-  color: rgb(46, 46, 71);
-}
-=======
 
 .App-link {
   color: #61dafb;
@@ -58,4 +47,3 @@ h1{
     transform: rotate(360deg);
   }
 } */
->>>>>>> 744876749aa199f66c61e219ace00cc1629fdfa7
