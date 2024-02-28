@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-    
+  
     <div className="App">
       <header>
       <button style={buttonStyles} onClick={hideOrderBookComponent}>Trade</button>

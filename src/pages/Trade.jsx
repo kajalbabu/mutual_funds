@@ -1,12 +1,11 @@
 import TradeFilter from "../components/TradeFilter";
-import TradeTable from "../components/TradeTable";
+import { data } from "../components/data";
+
 
 function Trade() {
-
   return (
     <div>
-      <TradeFilter/>
-      <TradeTable/>
+      <TradeFilter data={data}/>
     </div>
   );
 }
