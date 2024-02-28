@@ -10,11 +10,11 @@ function TradeFilterBtns({ category, setCategory }) {
     "Diversified",
   ];
   return (
-    <div className="tradeFilterButtons">
+    <div className="trade-filter-buttons">
       {btns.map((item, index) => {
         if (category === item) {
           return (
-            <button key={index} className="selectedButton default">
+            <button key={index} className="selected-button default">
               {item}
             </button>
           );

@@ -30,16 +30,17 @@ useEffect(()=>{
   const categorisedData = filterCategory(data);
   const filteredData = filterSearch(categorisedData);
   return (
-    <div className="tradeFilter">
+    <div className="trade-filter">
       <h2>Explore Mutual Funds</h2>
       <TradeFilterBtns category={category} setCategory={setCategory} />
-      <div className="tradeFilterSearch">
-        <input className="default searchBar"
+      <div className="trade-filter-search">
+        <input className="default search-bar"
           type="search"
           value={searchVal}
           placeholder="Search Schemes"
           onChange={handleChange}
         ></input>
+        <img src="./assets/search-svgrepo-com.svg" alt="search" width={20}/>
       </div>
       <TradeTable filteredData={filteredData} />
     </div>

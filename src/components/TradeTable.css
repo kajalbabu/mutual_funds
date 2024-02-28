@@ -1,26 +1,26 @@
 
-.tableWrapper{
+.table-wrapper{
   overflow-x: auto;
   width: 100%;
 }
-.tradeTable {
+.trade-table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 5px;
   border-top: 1px solid #ddd ;
 }
-.tradeTable th,.tradeTable td {
+.trade-table th,.trade-table td {
   padding: 5px;
   padding-right: 20px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-.fundBody{
+.fund-body{
   display: flex;
   gap: 10px;
   margin-right: 50px;
 }
-.fundName{
+.fund-name{
   font-size: small;
   display: flex;
   flex-direction: column;
@@ -28,20 +28,20 @@
   white-space: nowrap;
   padding: 10px;
 }
-.fundFirstRow span{
+.fund-first-row span{
   padding-right: 5px;
 }
-.fundSecondRow{
+.fund-second-row{
   font-weight: bold;
   margin-bottom: 10px;
 }
-.spanRating,.spanGrowth{
+.span-rating,.span-growth{
   background-color: rgb(211, 210, 210);
   margin-right: 10px;
   border-radius: 2px;
   padding-inline: 8px;
   padding-block: 5px;
 }
-.spanRating img{
+.span-rating img{
   padding-left: 3px;
 }

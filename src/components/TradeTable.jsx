@@ -3,8 +3,8 @@ import "./TradeTable.css";
 import Button from "./Button";
 function TradeTable({ filteredData }) {
   return (
-    <div className="tableWrapper">
-      <table className="tradeTable">
+    <div className="table-wrapper">
+      <table className="trade-table">
         <thead>
           <tr>
             <td>Fund</td>
@@ -20,21 +20,21 @@ function TradeTable({ filteredData }) {
           {filteredData.map((item) => (
             <tr key={item.fundName}>
               <td>
-                <div className="fundBody">
+                <div className="fund-body">
                   <img src={item.icon} alt="icon" width={50} />
-                  <div className="fundName">
-                    <div className="fundFirstRow">
+                  <div className="fund-name">
+                    <div className="fund-first-row">
                       <span>{item.investmentType}</span>
                       <span>.</span>
                       <span> {item.subCategoryName}</span>
                     </div>
-                    <div className="fundSecondRow">{item.fundName}</div>
-                    <div className="fundLastRow">
-                      <span className="spanRating">
+                    <div className="fund-second-row">{item.fundName}</div>
+                    <div className="fund-last-row">
+                      <span className="span-rating">
                         {item.rating}
                         <img src="./assets/star-rate-svgrepo-com.svg" alt="rating" width={10}/>
                       </span>
-                      <span className="spanGrowth">{item.reInvestmentPlan}</span>
+                      <span className="span-growth">{item.reInvestmentPlan}</span>
                     </div>
                   </div>
                 </div>
