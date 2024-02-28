@@ -1,14 +1,14 @@
 import './App.css';
-import Trade from './pages/Trade';
-import React, { useState } from "react";
+import { useState } from 'react';
 import OrderBook from './pages/OrderBook';
-
+import Trade from './pages/Trade';
+import Table from './components/Table';
 
 function App() {
   
   var buttonStyles = {
-    backgroundColor: 'lightblue',
-    color: 'black'
+    backgroundColor: 'white',
+    color: 'blue'
   };
 
 
@@ -33,7 +33,7 @@ function App() {
       <button style={buttonStyles} onClick={hideOrderBookComponent}>Trade</button>
       <button style={buttonStyles} onClick={hideTradeComponent}>OrderBook</button>
     </header>
-      {isOrderBookVisible && <OrderBook/>}
+      {isOrderBookVisible && <Table/>}
       {isTradeVisible && <Trade/>}
 
     </div>
