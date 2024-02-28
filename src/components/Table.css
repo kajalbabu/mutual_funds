@@ -4,6 +4,13 @@ table{
     overflow-x: auto;
     background-color: rgb(255, 255, 255);
 }
+.selectOption{
+    height: auto;
+    width: auto;
+    padding: 20px;
+    margin: 4px;
+    border-radius: 10px;
+}
 td{
     align-items: center;
     justify-content: center;
