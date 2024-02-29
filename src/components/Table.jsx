@@ -2,7 +2,6 @@ import React from "react";
 import './Table.css';
 import Popup from "../components/Popup";
 import { useState } from "react";
-
 export default function Table(){
     const [isHidden, setIsHidden] = useState(true);
     
@@ -15,15 +14,17 @@ export default function Table(){
     const [switchComponent, setSwitchComponent] = useState(false);
     //search term initialization
     const [searchTerm, setSearchTerm] = useState('');
+    // input order type category
+    const [orderTypeVal, setOrderTypeVal] = useState('All');
     // handling input change here on every click in input
     const handleInputChange = (searchValue) => {
         setSearchTerm(searchValue.target.value);
     };
     // handling order type filter
-    const handleOrderType = (typeInput)=>{
-        setSearchTerm(typeInput);
+    const handleOrderType = (event)=>{
+        console.log("slected ", event.target.value);
+        setSearchTerm(event.target.value);
     }
-    
     // 3 arrow functions which make state changes on click
     const toggleComponentPurchase = () => {
         console.log("i am here toggleComponentPurchase");
@@ -50,6 +51,18 @@ export default function Table(){
                             headFive:'Amount',headSix:'FreshOrder / Investment',
                             headSeven:'Order Status'}]
     const stockDetailsPurchased= [
+        {
+            key : 'Purchased added',
+            fundName : 'Purchased added',
+            clientCode : 'B53586',
+            OrderDate : '23/02/2024',
+            orderType : 'Lumpsum',
+            amount : 1000,
+            orderCategory : 'Fresh Order',
+            orderStatus : 'Failed',
+            category:'Purchased',
+            imageUrl : 'logo1.svg'
+        },
         {
             key : 'one',
             fundName : 'Bhandhan Liquid',
@@ -200,12 +213,22 @@ export default function Table(){
 
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-        const currentItems = stocksDataArray.slice(indexOfFirstItem, indexOfLastItem);
-        const totalPages = Math.ceil(stocksDataArray.length / itemsPerPage);
+        // temparry array initialization
+        const tempArray = [];
+        const tempArrayFunction = stocksDataArray.map(bdVal => {
+                return(
+                    category===bdVal.category && tempArray.push(bdVal)
+                )
+        })
+        const currentItems = tempArray.slice(indexOfFirstItem, indexOfLastItem);
+        const totalPages = Math.ceil(tempArray.length / itemsPerPage);
+        
         const handlePageChange = (page) => {
             setCurrentPage(page);
           };
         return(
+            <>
+            
             <table>
                 <thead>
                     {stocksHeaderArray.map(headVal => (
@@ -223,8 +246,9 @@ export default function Table(){
                 </thead>
                 
                 <tbody>
-                    {stocksDataArray.map(bdVal => (
+                    {currentItems.map(bdVal => (
                         category===bdVal.category &&
+
                         <tr key={bdVal.key}>
                             <td><img className="logo" src={bdVal.imageUrl} />{bdVal.fundName}</td>
                             <td>{bdVal.clientCode}</td>
@@ -236,11 +260,13 @@ export default function Table(){
                         </tr>
                     ))}
                 </tbody>
-                <div className="pagination">
-                    <button>prev</button><button>next</button>
-                    {/* <p>&lt;</p><p>1</p><p>&gt;</p> */}
-                </div>
+                
             </table>
+            <div className="pagination">
+            <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} >prev</button>
+            <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>next</button>
+            </div>
+            </>
     
         );
     }
@@ -252,7 +278,8 @@ export default function Table(){
           : stockDetailsPurchased.filter((item) => {
               if (
                 item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.clientCode.toLowerCase().includes(searchTerm.toLowerCase())
+                item.clientCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase())
               ){
                 return true;
               }
@@ -263,6 +290,7 @@ export default function Table(){
     
     return(
         <div className="OrderBookComponent">
+            
             <h4>Order Book</h4>
             <div className="navigation-section">
                 <button onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
@@ -272,7 +300,7 @@ export default function Table(){
             <input onChange={handleInputChange} className="search-input" id="searchInput" type="text" placeholder="Search client name / code "/>
             
             <label><b id="OrderTypeText">OrderType</b>
-                    <select id="selectOption">
+                    <select onChange={handleOrderType} id="selectOption">
                         <option value=''>All</option>
                         <option value='Lumpsum'>Lumpsum</option>
                         <option value='Intraday'>Intraday</option>
@@ -283,10 +311,11 @@ export default function Table(){
                     {isHidden ? null : <Popup />
                     }
             <hr/>
-            {purchaseComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Purchased'} itemsPerPage={4}/>}
-            {withdrawComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Withdraw'} itemsPerPage={4}/>}
-            {switchComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Switch'} itemsPerPage={4}/>}
-            
+            <div className="table">
+                {purchaseComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Purchased'} itemsPerPage={4}/>}
+                {withdrawComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Withdraw'} itemsPerPage={4}/>}
+                {switchComponent && <StocksTable stocksDataArray={filteredRows} stocksHeaderArray={headersOfTable} category={'Switch'} itemsPerPage={4}/>}
+            </div>
         </div>
     )
 }
