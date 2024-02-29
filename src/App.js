@@ -3,7 +3,6 @@ import { useState } from 'react';
 import OrderBook from './pages/OrderBook';
 import Trade from './pages/Trade';
 import Table from './components/Table';
-
 function App() {
   
   var buttonStyles = {

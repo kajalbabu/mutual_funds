@@ -5,6 +5,9 @@ import { useState } from "react";
 export default function Table(){
     const [isHidden, setIsHidden] = useState(true);
     
+    const [dateFrom, setDateFrom] = useState("2022/01/01");
+    const [dateTo, setDateTo] = useState("90000/01/01");
+
     const toggleVisibility = () => {
       setIsHidden(!isHidden);
     };
@@ -55,7 +58,7 @@ export default function Table(){
             key : 'Purchased added',
             fundName : 'Purchased added',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2023/01/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'Fresh Order',
@@ -67,8 +70,8 @@ export default function Table(){
             key : 'one',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
+            OrderDate : '2024/01/03',
+            orderType : 'SIP',
             amount : 1000,
             orderCategory : 'Fresh Order',
             orderStatus : 'Failed',
@@ -79,7 +82,7 @@ export default function Table(){
             key : 'two',
             fundName : 'icici',
             clientCode : 'B53587',
-            OrderDate : '23/01/2024',
+            OrderDate : '2023/02/02',
             orderType : 'SIP',
             amount : 100,
             orderCategory : 'Fresh Order',
@@ -88,11 +91,11 @@ export default function Table(){
             imageUrl : 'logo3.svg'
         },
         {
-            key : 'three',
+            key : 'threeghbjn',
             fundName : 'sbi Fund',
             clientCode : 'B53588',
-            OrderDate : '28/02/2024',
-            orderType : 'Lumpsum',
+            OrderDate : '2024/02/02',
+            orderType : 'SIP',
             amount : 5000,
             orderCategory : 'NA',
             orderStatus : 'Failed',
@@ -100,10 +103,34 @@ export default function Table(){
             imageUrl : 'logo2.svg'
         },
         {
+            key : 'three09uy',
+            fundName : 'sbi Fund',
+            clientCode : 'B53588',
+            OrderDate : '2023/03/02',
+            orderType : 'Intraday',
+            amount : 5000,
+            orderCategory : 'NA',
+            orderStatus : 'Failed',
+            category:'Switch',
+            imageUrl : 'logo2.svg'
+        },
+        {
+            key : 'threeerfgbn',
+            fundName : 'sbi Withdraw',
+            clientCode : 'B53588',
+            OrderDate : '2024/03/02',
+            orderType : 'Intraday',
+            amount : 5000,
+            orderCategory : 'NA',
+            orderStatus : 'Failed',
+            category:'Withdraw',
+            imageUrl : 'logo2.svg'
+        },
+        {
             key : 'four',
             fundName : 'Bhandhan Fund',
             clientCode : 'B57586',
-            OrderDate : '22/02/2024',
+            OrderDate : '2023/04/02',
             orderType : 'intraday',
             amount : 1008,
             orderCategory : 'NA',
@@ -115,7 +142,7 @@ export default function Table(){
             key : 'five',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2024/04/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'Fresh Order',
@@ -127,7 +154,7 @@ export default function Table(){
             key : 'six',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2023/05/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'NA',
@@ -138,7 +165,7 @@ export default function Table(){
             key : 'oneTwo',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2024/05/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'Fresh Order',
@@ -150,7 +177,7 @@ export default function Table(){
             key : 'twoTwo',
             fundName : 'icici',
             clientCode : 'B53587',
-            OrderDate : '23/01/2024',
+            OrderDate : '2023/06/02',
             orderType : 'SIP',
             amount : 100,
             orderCategory : 'Fresh Order',
@@ -162,7 +189,7 @@ export default function Table(){
             key : 'threeTwo',
             fundName : 'sbi Fund',
             clientCode : 'B53588',
-            OrderDate : '28/02/2024',
+            OrderDate : '2024/06/02',
             orderType : 'Lumpsum',
             amount : 5000,
             orderCategory : 'NA',
@@ -174,7 +201,7 @@ export default function Table(){
             key : 'fourTwo',
             fundName : 'Bhandhan Fund',
             clientCode : 'B57586',
-            OrderDate : '22/02/2024',
+            OrderDate : '2022/07/02',
             orderType : 'intraday',
             amount : 1008,
             orderCategory : 'NA',
@@ -186,7 +213,7 @@ export default function Table(){
             key : 'fiveTwo',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2023/08/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'Fresh Order',
@@ -198,7 +225,7 @@ export default function Table(){
             key : 'sixTwo',
             fundName : 'Bhandhan Liquid',
             clientCode : 'B53586',
-            OrderDate : '23/02/2024',
+            OrderDate : '2021/02/02',
             orderType : 'Lumpsum',
             amount : 1000,
             orderCategory : 'NA',
@@ -277,13 +304,19 @@ export default function Table(){
           ? stockDetailsPurchased
           : stockDetailsPurchased.filter((item) => {
               if (
-                item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 item.clientCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase())
+                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase()))
               ){
+                console.log('true');
+                console.log('(item.OrderDate>=dateFrom, item.OrderDate<=dateTo)',dateFrom,dateTo);
+                // console.log('true (item.OrderDate>=dateFrom && item.OrderDate<=dateTo)',(item.OrderDate>=dateFrom && item.OrderDate<=dateTo));
                 return true;
               }
               else{
+                console.log('false');
+                console.log('(item.OrderDate>=dateFrom, item.OrderDate<=dateTo)',dateFrom<dateTo);
+                // console.log('false (item.OrderDate>=dateFrom && item.OrderDate<=dateTo)',(item.OrderDate>=dateFrom && item.OrderDate<=dateTo));
                 return false;
               } 
     });
@@ -308,7 +341,7 @@ export default function Table(){
                     </select>
                     </label>
             <button className="filterButton" onClick={toggleVisibility}><img className="filterImage" src="filter-icon.svg" alt="filter" />Filters</button>
-                    {isHidden ? null : <Popup />
+                    {isHidden ? null : <Popup  />
                     }
             <hr/>
             <div className="table">
