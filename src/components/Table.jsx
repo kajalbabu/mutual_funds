@@ -3,10 +3,21 @@ import './Table.css';
 import Popup from "../components/Popup";
 import { useState } from "react";
 export default function Table(){
-    const [isHidden, setIsHidden] = useState(true);
     
-    const [dateFrom, setDateFrom] = useState("2022/01/01");
-    const [dateTo, setDateTo] = useState("90000/01/01");
+    const [optionFailed, setOptionFailed] = useState(false);
+    const [optionSuccess, setOptionSuccess] = useState(false);
+    const [isHidden, setIsHidden] = useState(true);
+    const [status, setStatus] = useState('');
+    const [dateFrom, setDateFrom] = useState("0/0/0");
+    const [dateTo, setDateTo] = useState("90000/12/31");
+    const [btnName, setBtnName] = useState('Purchase');
+    const [mainNavButton, setainNavButton] = useState('Trade');
+    const [purchasedClass, setPurchasedClass] = useState('selected-button');
+    const [withdrawClass, setWithdrawClass] = useState('selected');
+    const [switchClass, setSwitchClass] = useState('selected');
+    
+    const classNameForSelectedButton = "selected-button";
+
 
     const toggleVisibility = () => {
       setIsHidden(!isHidden);
@@ -29,23 +40,38 @@ export default function Table(){
         setSearchTerm(event.target.value);
     }
     // 3 arrow functions which make state changes on click
-    const toggleComponentPurchase = () => {
+    const toggleComponentPurchase = (event) => {
         console.log("i am here toggleComponentPurchase");
+        setPurchasedClass(classNameForSelectedButton);
+        setWithdrawClass("nothing");
+        setSwitchClass("nothing");
         setWithdrawComponent(false);
         setPurchaseComponent(true);
         setSwitchComponent(false);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     const toggleComponentWithdraw = () => {
         console.log("i am here toggleComponentWithdraw");
+        setWithdrawClass(classNameForSelectedButton);
+        setPurchasedClass("nothing");
+        setSwitchClass("nothing");
         setWithdrawComponent(true);
         setPurchaseComponent(false);
         setSwitchComponent(false);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     const toggleComponentSwitch = () => {
         console.log("i am here toggleComponentSwitch");
+        setPurchasedClass("nothing");
+        setWithdrawClass("nothing");
+        setSwitchClass(classNameForSelectedButton)
         setWithdrawComponent(false);
         setPurchaseComponent(false);
         setSwitchComponent(true);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     // data need to make headers and table rows
     // header data
@@ -64,7 +90,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Failed',
             category:'Purchased',
-            imageUrl : 'logo1.svg'
+            imageUrl : 'logo1.svg',
+            status :'Completed'
         },
         {
             key : 'one',
@@ -76,7 +103,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Failed',
             category:'Purchased',
-            imageUrl : 'logo1.svg'
+            imageUrl : 'logo1.svg',
+            status :'Completed'
         },
         {
             key : 'two',
@@ -88,7 +116,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Success',
             category:'Withdraw',
-            imageUrl : 'logo3.svg'
+            imageUrl : 'logo3.svg',
+            status :'Completed'
         },
         {
             key : 'threeghbjn',
@@ -100,7 +129,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Failed',
             category:'Switch',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'three09uy',
@@ -112,7 +142,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Failed',
             category:'Switch',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'threeerfgbn',
@@ -124,7 +155,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Failed',
             category:'Withdraw',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'four',
@@ -136,7 +168,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Success',
             category:'Purchased',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'five',
@@ -148,7 +181,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Success',
             category:'Withdraw',
-            imageUrl : 'logo3.svg'
+            imageUrl : 'logo3.svg',
+            status :'Completed'
         },
         {
             key : 'six',
@@ -160,7 +194,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Success',
             category:'Switch',
-            imageUrl : 'logo1.svg'
+            imageUrl : 'logo1.svg',
+            status :'Completed'
         },{
             key : 'oneTwo',
             fundName : 'Bhandhan Liquid',
@@ -171,7 +206,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Failed',
             category:'Purchased',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'twoTwo',
@@ -183,7 +219,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Success',
             category:'Withdraw',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         },
         {
             key : 'threeTwo',
@@ -195,7 +232,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Failed',
             category:'Switch',
-            imageUrl : 'logo3.svg'
+            imageUrl : 'logo3.svg',
+            status :'Completed'
         },
         {
             key : 'fourTwo',
@@ -207,7 +245,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Success',
             category:'Purchased',
-            imageUrl : 'logo1.svg'
+            imageUrl : 'logo1.svg',
+            status :'Completed'
         },
         {
             key : 'fiveTwo',
@@ -219,7 +258,8 @@ export default function Table(){
             orderCategory : 'Fresh Order',
             orderStatus : 'Success',
             category:'Withdraw',
-            imageUrl : 'logo1.svg'
+            imageUrl : 'logo1.svg',
+            status :'Completed'
         },
         {
             key : 'sixTwo',
@@ -231,7 +271,8 @@ export default function Table(){
             orderCategory : 'NA',
             orderStatus : 'Failed',
             category:'Switch',
-            imageUrl : 'logo2.svg'
+            imageUrl : 'logo2.svg',
+            status :'Completed'
         }
     ]
     // table data
@@ -299,14 +340,14 @@ export default function Table(){
     }
     
     // filtered data rows
-    const filteredRows =
+    let filteredRows =
         searchTerm === ""
-          ? stockDetailsPurchased
-          : stockDetailsPurchased.filter((item) => {
+          ? stockDetailsPurchased : stockDetailsPurchased.filter((item) => {
               if (
                 (item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 item.clientCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase()))
+                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase())) ||
+                item.status.toLocaleLowerCase === status
               ){
                 console.log('true');
                 console.log('(item.OrderDate>=dateFrom, item.OrderDate<=dateTo)',dateFrom,dateTo);
@@ -320,15 +361,56 @@ export default function Table(){
                 return false;
               } 
     });
+    if((optionFailed===true && optionSuccess===true) || (optionFailed===false && optionSuccess===false) ){
+        filteredRows=filteredRows;
+    }else{
+        if(optionFailed===true){
+            filteredRows = filteredRows.filter(
+                (item)=>{
+                    console.log("option success true",item);
+                    if(item.orderStatus==="Failed"){
+                        console.log("true ",item.status);
+                        return true;
+                    }else{
+                        console.log("false ",item.status);
+                        return false;
+                    }
+                }
+            )
+        }else{
+            filteredRows = filteredRows.filter(
+                (item)=>{
+                    console.log("option success true",item);
+                    if(item.orderStatus==="Success"){
+                        console.log("true ",item.status);
+                        return true;
+                    }else{
+                        console.log("false ",item.status);
+                        return false;
+                    }
+                }
+            )
+        }
+    }
+    
+    filteredRows= filteredRows.filter(
+        (item)=>{
+            if(item.OrderDate>=dateFrom && item.OrderDate<=dateTo){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    )
     
     return(
         <div className="OrderBookComponent">
             
             <h4>Order Book</h4>
             <div className="navigation-section">
-                <button onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
-                <button onClick={toggleComponentWithdraw} id="Withdraw">Withdraw</button>
-                <button onClick={toggleComponentSwitch} id="Switch">Switch</button>
+                <button className={purchasedClass} onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
+                <button className={withdrawClass} onClick={toggleComponentWithdraw} id="Withdraw">Withdraw</button>
+                <button className={switchClass} onClick={toggleComponentSwitch} id="Switch">Switch</button>
             </div>
             <input onChange={handleInputChange} className="search-input" id="searchInput" type="text" placeholder="Search client name / code "/>
             
@@ -341,7 +423,10 @@ export default function Table(){
                     </select>
                     </label>
             <button className="filterButton" onClick={toggleVisibility}><img className="filterImage" src="filter-icon.svg" alt="filter" />Filters</button>
-                    {isHidden ? null : <Popup  />
+                    {isHidden ? null : <Popup optionFailed ={optionFailed} setOptionFailed={setOptionFailed}
+                     setStatus = {setStatus} optionSuccess={optionSuccess} setOptionSuccess={setOptionSuccess}
+                     setDateFrom={setDateFrom} setDateTo = {setDateTo} />
+                    
                     }
             <hr/>
             <div className="table">
