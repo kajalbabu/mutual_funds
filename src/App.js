@@ -1,41 +1,35 @@
-import './App.css';
-import { useState } from 'react';
-import OrderBook from './pages/OrderBook';
-import Trade from './pages/Trade';
-import Table from './components/Table';
+import "./App.css";
+import { useState } from "react";
+import OrderBook from "./pages/OrderBook";
+import Trade from "./pages/Trade";
+import Table from "./components/Table";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Invest from "./pages/Invest";
+import { Link } from "react-router-dom";
 
 function App() {
-  
   var buttonStyles = {
-    backgroundColor: 'white',
-    color: 'blue'
+    backgroundColor: "white",
+    color: "blue",
   };
 
-
-  const [isTradeVisible, setIsTradeVisible] = useState(true);
-  const [isOrderBookVisible, setIsOrderBookVisible] = useState(false);
-
-
-  const hideTradeComponent = () =>{
-    setIsTradeVisible(false);
-    setIsOrderBookVisible(true);
-  }
-  const hideOrderBookComponent = () =>{
-    setIsOrderBookVisible(false);
-    setIsTradeVisible(true);
-  }
-
-
   return (
-  
     <div className="App">
-      <header>
-      <button style={buttonStyles} onClick={hideOrderBookComponent}>Trade</button>
-      <button style={buttonStyles} onClick={hideTradeComponent}>OrderBook</button>
-    </header>
-      {isOrderBookVisible && <Table/>}
-      {isTradeVisible && <Trade/>}
-
+      <Router>
+        <header>
+          <Link to={"/"}>
+            <button style={buttonStyles}>Trade</button>
+          </Link>
+          <Link to={"/order"}>
+            <button style={buttonStyles}>Order Book</button>
+          </Link>
+        </header>
+        <Routes>
+          <Route path="/" element={<Trade />} />
+          <Route path="/order" element={<Table />} />
+          <Route path="/invest" element={<Invest />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

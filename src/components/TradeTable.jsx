@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import "./TradeTable.css";
 import Button from "./Button";
+import { Link } from "react-router-dom";
+
 function TradeTable({ filteredData }) {
   return (
     <div className="table-wrapper">
       <table className="trade-table">
         <thead>
           <tr>
-            <td>Fund</td>
-            <td>1Y Returns</td>
-            <td>3Y Returns</td>
-            <td>5Y Returns</td>
-            <td>Current Nav</td>
-            <td>Min SIP Investment</td>
-            <td></td>
+            <th>Fund</th>
+            <th>1Y Returns</th>
+            <th>3Y Returns</th>
+            <th>5Y Returns</th>
+            <th>Current Nav</th>
+            <th>Min SIP Investment</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -32,9 +34,15 @@ function TradeTable({ filteredData }) {
                     <div className="fund-last-row">
                       <span className="span-rating">
                         {item.rating}
-                        <img src="./assets/star-rate-svgrepo-com.svg" alt="rating" width={10}/>
+                        <img
+                          src="./assets/star-rate-svgrepo-com.svg"
+                          alt="rating"
+                          width={10}
+                        />
                       </span>
-                      <span className="span-growth">{item.reInvestmentPlan}</span>
+                      <span className="span-growth">
+                        {item.reInvestmentPlan}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -45,7 +53,9 @@ function TradeTable({ filteredData }) {
               <td>{item.currentNav}</td>
               <td>{item.minSipInvestment}</td>
               <td>
-                <Button />
+                <Link to={"/invest"}>
+                  <Button />
+                </Link>
               </td>
             </tr>
           ))}

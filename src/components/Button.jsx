@@ -1,13 +1,8 @@
 import React from "react";
-import './Button.css'
+import "./Button.css";
 
 function Button() {
-  return (
-    <div>
-      
-      <button className="invest">INVEST</button>
-    </div>
-  );
+  return <button className="invest">INVEST</button>;
 }
 
 export default Button;
