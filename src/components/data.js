@@ -1,7 +1,7 @@
 
 export const data = [
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",
       fundName: "Quant Small Cap Fund Growth Regular Plan",
@@ -43,7 +43,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",
       fundName: "Quant Small Cap Fund Growth Regular Plan",
@@ -85,7 +85,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "ELSS",
       fundName: "Quant ELSS Tax Saver Fund Growth Regular Plan",
@@ -155,7 +155,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/icici.svg",
       investmentType: "DEBT",
       subCategoryName: "SHORT DURATION FUND",
       fundName: "ICICI Prudential Short Term Fund Growth",
@@ -169,7 +169,7 @@ export const data = [
       minSipInvestment: "₹1,000"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SECTORAL/THEMATIC",
       fundName: "Quant Infrastructure Fund Growth",
@@ -197,7 +197,7 @@ export const data = [
       minSipInvestment: "₹500"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/icici.svg",
       investmentType: "EQUITY",
       subCategoryName: "SECTORAL/THEMATIC",
       fundName: "ICICI Prudential Technology Fund Growth",
@@ -211,7 +211,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/quant.svg",
       investmentType: "HYBRID",
       subCategoryName: "MULTIASSET ALLOCATION",
       fundName: "Quant Multi Asset Fund Growth Regular Plan",
@@ -225,7 +225,7 @@ export const data = [
       minSipInvestment: "₹1,000"
     },
     {
-      icon: "./assets/hdfc-bank-logo.svg",
+      icon: "./assets/icici.svg",
       investmentType: "HYBRID",
       subCategoryName: "MULTIASSET ALLOCATION",
       fundName: "ICICI Prudential Multi Asset Fund Growth",

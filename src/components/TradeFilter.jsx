@@ -8,23 +8,30 @@ function TradeFilter({ data }) {
   function handleChange(e) {
     setSearchVal(e.target.value);
   }
-useEffect(()=>{
-    setSearchVal("")
-},[category])
+  useEffect(() => {
+    setSearchVal("");
+  }, [category]);
 
   function filterCategory(data) {
     return data.filter((item) => {
       return category === item.category;
     });
   }
+
   function filterSearch(data) {
-    return searchVal === ""
-      ? data
-      : data.filter((item) => {
-          return item.fundName
-            .toLowerCase()
-            .includes(searchVal.toLowerCase());
+    if (searchVal === "") {
+      return data;
+    } else {
+      if (searchVal.length > 2) {
+        return data.filter((item) => {
+          return item.fundName.toLowerCase().includes(searchVal.toLowerCase());
         });
+      }
+      else{
+        return data;
+      }
+      
+    }
   }
 
   const categorisedData = filterCategory(data);
@@ -34,13 +41,14 @@ useEffect(()=>{
       <h2>Explore Mutual Funds</h2>
       <TradeFilterBtns category={category} setCategory={setCategory} />
       <div className="trade-filter-search">
-        <input className="default search-bar"
+        <input
+          className="default search-bar"
           type="search"
           value={searchVal}
           placeholder="Search Schemes"
           onChange={handleChange}
         ></input>
-        <img src="./assets/search-svgrepo-com.svg" alt="search" width={20}/>
+        <img src="./assets/search-svgrepo-com.svg" alt="search" width={20} />
       </div>
       <TradeTable filteredData={filteredData} />
     </div>
