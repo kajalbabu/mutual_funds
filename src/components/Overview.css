@@ -26,7 +26,7 @@ h2,h1{
 }
 .example-chart-image{
     height: 400px;
-    width: 70vw;
+    /* width: 70vw; */
 }
 .returns-section h1{
     display: flex;
@@ -45,7 +45,7 @@ h2,h1{
 }
 .overview-component{
     overflow: auto;
-    width: 70vw;
+    /* width: 70vw; */
     margin: 12px;
     border-radius: 12px;
     padding: 20px;

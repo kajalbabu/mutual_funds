@@ -5,31 +5,32 @@ import "./Invest.css";
 import InvestHeader from "../../components/InvestHeader/InvestHeader";
 import FundManager from "../../components/FundManager/FundManager";
 import RiskAndRating from "../../components/RiskAndRating/RiskAndRating";
-import { useLocation } from "react-router-dom";
-import { investData } from "../../components/investData";
+import Overview from "../../components/Overveiw";
+import CalculateReturns from "../../components/CalculateReturns";
+import YourInvestmentPad from "../../components/YourInvestmentPad";
 
-function Invest(props) {
+function Invest() {
+  const fundKey = "sixTwo";
   const [investButton, setInvestButton] = useState("Overview");
-  const location = useLocation();
-  function filterInvestData(data){
-      return data.filter((item)=>{
-        return item.id===location.state.id
-      })
-  }
-  const filteredInvestData=filterInvestData(investData);
-  console.log(filteredInvestData)
   return (
     <div className="invest">
-      <div className="card-layout">
-        <InvestHeader />
-        <InvestButtons
-          investButton={investButton}
-          setInvestButton={setInvestButton}
-        />
+      <div className="invest-body">
+        <div className="card-layout">
+          <InvestHeader />
+          <InvestButtons
+            investButton={investButton}
+            setInvestButton={setInvestButton}
+          />
+        </div>
+        <div className="overview-section">
+          <Overview fundKey={fundKey} />
+          <CalculateReturns fundKey={fundKey} />
+        </div>
+        <SchemeDetails />
+        <FundManager />
+        <RiskAndRating />
       </div>
-      <SchemeDetails filteredInvestData={filteredInvestData}/>
-      <FundManager />
-      <RiskAndRating />
+      <YourInvestmentPad />
     </div>
   );
 }

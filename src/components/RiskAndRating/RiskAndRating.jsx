@@ -22,7 +22,7 @@ function RiskAndRating() {
             <p>Value Research</p>
           </div>
           <div className="rating-part">
-            <p className="span-rating">
+            <p className="risk-star">
               4
               <img
                 src="./assets/star-rate-svgrepo-com.svg"
@@ -30,7 +30,7 @@ function RiskAndRating() {
                 width={10}
               />
             </p>
-            <p className="span-rating">
+            <p className="risk-star">
               5
               <img
                 src="./assets/star-rate-svgrepo-com.svg"
@@ -38,7 +38,7 @@ function RiskAndRating() {
                 width={10}
               />
             </p>
-            <p className="span-rating">
+            <p className="risk-star">
               4
               <img
                 src="./assets/star-rate-svgrepo-com.svg"
@@ -46,7 +46,7 @@ function RiskAndRating() {
                 width={10}
               />
             </p>
-            <p className="span-rating">
+            <p className="risk-star">
               4
               <img
                 src="./assets/star-rate-svgrepo-com.svg"

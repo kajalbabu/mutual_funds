@@ -53,7 +53,7 @@ function TradeTable({ filteredData }) {
               <td>{item.currentNav}</td>
               <td>{item.minSipInvestment}</td>
               <td>
-                <Link to={"/invest"} state={{id:item.id}}>
+                <Link to={"/invest"}>
                   <Button />
                 </Link>
               </td>

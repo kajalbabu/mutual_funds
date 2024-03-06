@@ -1,7 +1,7 @@
 import React from "react";
 import "./SchemeDetails.css";
 import { investData } from "../investData";
-function SchemeDetails({filteredInvestData}) {
+function SchemeDetails() {
   const data = investData[0];
   return (
     <div className="scheme-details">
@@ -15,7 +15,7 @@ function SchemeDetails({filteredInvestData}) {
                   <span className="material-symbols-outlined">cake</span>Fund
                   Age
                 </p>
-                <p>{filteredInvestData[0].fundAge}</p>
+                <p>{data.fundAge}</p>
               </div>
             </td>
             <td>

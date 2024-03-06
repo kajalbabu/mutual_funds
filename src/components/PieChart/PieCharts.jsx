@@ -7,15 +7,14 @@ Chart.register(
 )
 
 const PieCharts = () => {
-
   useEffect(() => {
     const ctx = document.getElementById('pieChart');
 
     const pieData = {
-      labels: ['Red', 'Blue', 'Yellow', 'Green'],
+      // labels: ['Red', 'Blue', 'Yellow', 'Green'],
       datasets: [
         {
-          data: [12, 19, 3, 5],
+          data: [19, 12, 3, 5],
           backgroundColor: ['red', 'blue', 'yellow', 'green'],
         },
       ],
