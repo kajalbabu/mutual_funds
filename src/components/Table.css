@@ -110,7 +110,7 @@ th{
     border-bottom: 1px solid grey;
     border-collapse: collapse;
 }
-h4{
+.order-book-h2{
     color: blue;
     margin-left: 10px;
     font-weight: 600;

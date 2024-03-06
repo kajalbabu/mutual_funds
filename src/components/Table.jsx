@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import './Table.css';
 import Popup from "../components/Popup";
 import { useState } from "react";
-export default function Table(){
+import {UserData} from "../components/data/UserData";
+function Table(){
     
     const [optionFailed, setOptionFailed] = useState(false);
     const [optionSuccess, setOptionSuccess] = useState(false);
@@ -79,202 +80,7 @@ export default function Table(){
                             headThree:'Order Date',headFour:'Order Type',
                             headFive:'Amount',headSix:'FreshOrder / Investment',
                             headSeven:'Order Status'}]
-    const stockDetailsPurchased= [
-        {
-            key : 'Purchased added',
-            fundName : 'Purchased added',
-            clientCode : 'B53586',
-            OrderDate : '2023/01/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo1.svg',
-            status :'Completed'
-        },
-        {
-            key : 'one',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2024/01/03',
-            orderType : 'SIP',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo1.svg',
-            status :'Completed'
-        },
-        {
-            key : 'two',
-            fundName : 'icici',
-            clientCode : 'B53587',
-            OrderDate : '2023/02/02',
-            orderType : 'SIP',
-            amount : 100,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo3.svg',
-            status :'Completed'
-        },
-        {
-            key : 'threeghbjn',
-            fundName : 'sbi Fund',
-            clientCode : 'B53588',
-            OrderDate : '2024/02/02',
-            orderType : 'SIP',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'three09uy',
-            fundName : 'sbi Fund',
-            clientCode : 'B53588',
-            OrderDate : '2023/03/02',
-            orderType : 'Intraday',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'threeerfgbn',
-            fundName : 'sbi Withdraw',
-            clientCode : 'B53588',
-            OrderDate : '2024/03/02',
-            orderType : 'Intraday',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Withdraw',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'four',
-            fundName : 'Bhandhan Fund',
-            clientCode : 'B57586',
-            OrderDate : '2023/04/02',
-            orderType : 'intraday',
-            amount : 1008,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Purchased',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'five',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2024/04/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo3.svg',
-            status :'Completed'
-        },
-        {
-            key : 'six',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2023/05/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Switch',
-            imageUrl : 'logo1.svg',
-            status :'Completed'
-        },{
-            key : 'oneTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2024/05/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'twoTwo',
-            fundName : 'icici',
-            clientCode : 'B53587',
-            OrderDate : '2023/06/02',
-            orderType : 'SIP',
-            amount : 100,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        },
-        {
-            key : 'threeTwo',
-            fundName : 'sbi Fund',
-            clientCode : 'B53588',
-            OrderDate : '2024/06/02',
-            orderType : 'Lumpsum',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo3.svg',
-            status :'Completed'
-        },
-        {
-            key : 'fourTwo',
-            fundName : 'Bhandhan Fund',
-            clientCode : 'B57586',
-            OrderDate : '2022/07/02',
-            orderType : 'intraday',
-            amount : 1008,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Purchased',
-            imageUrl : 'logo1.svg',
-            status :'Completed'
-        },
-        {
-            key : 'fiveTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2023/08/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo1.svg',
-            status :'Completed'
-        },
-        {
-            key : 'sixTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '2021/02/02',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo2.svg',
-            status :'Completed'
-        }
-    ]
+   
     // table data
     const StocksTable = ({stocksDataArray,stocksHeaderArray,category,itemsPerPage})=>{
         const [currentPage, setCurrentPage] = useState(1);
@@ -342,7 +148,7 @@ export default function Table(){
     // filtered data rows
     let filteredRows =
         searchTerm === ""
-          ? stockDetailsPurchased : stockDetailsPurchased.filter((item) => {
+          ? UserData : UserData.filter((item) => {
               if (
                 (item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 item.clientCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -406,7 +212,7 @@ export default function Table(){
     return(
         <div className="OrderBookComponent">
             
-            <h4>Order Book</h4>
+            <h4 className="order-book-h2">Order Book</h4>
             <div className="navigation-section">
                 <button className={purchasedClass} onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
                 <button className={withdrawClass} onClick={toggleComponentWithdraw} id="Withdraw">Withdraw</button>
@@ -437,3 +243,4 @@ export default function Table(){
         </div>
     )
 }
+export default Table;

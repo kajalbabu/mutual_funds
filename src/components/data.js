@@ -1,6 +1,7 @@
 
 export const data = [
     {
+      
       icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",

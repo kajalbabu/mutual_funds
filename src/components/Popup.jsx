@@ -1,7 +1,7 @@
 import "./Popup.css"
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-export default function Popup(props){
+function Popup(props){
     const [optionSuccess,setOptionSuccess] = useState(false);
     const [optionFailed,setOptionFailed] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -91,3 +91,4 @@ export default function Popup(props){
         </>
     )
 }
+export default Popup;
