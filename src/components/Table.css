@@ -4,6 +4,11 @@ table{
     overflow-x: auto;
     background-color: rgb(255, 255, 255);
 }
+.selected-button{
+    background-color: rgb(39, 39, 221);
+    color: white;
+    border: 1px solid white;
+}
 .selectOption{
     height: auto;
     width: auto;
@@ -29,6 +34,9 @@ th, tr{
 }
 .filterButton{
     margin-left: 10px;
+}
+.navigation-section,.OrderBookComponent{
+    overflow: auto;
 }
 .OrderBookComponent{
     box-shadow:  1px 1px 5px rgb(206, 205, 205);
@@ -102,7 +110,7 @@ th{
     border-bottom: 1px solid grey;
     border-collapse: collapse;
 }
-h4{
+.order-book-h2{
     color: blue;
     margin-left: 10px;
     font-weight: 600;

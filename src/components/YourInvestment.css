@@ -1,0 +1,78 @@
+.investment-main{
+    background-color: white;
+    margin: 10px;
+    border-radius: 12px;
+    width: 20vw;
+    height: auto;
+    padding: 12px 12px 12px 12px;
+}
+.invest-head{
+    font-weight: bold;
+    font-size: large;
+}
+.add-button{
+    background-color: blue;
+    color: white;
+}
+.nav-for-sip-onetime{
+    display: flex;
+    
+    flex-direction: row;
+    padding: 10px 10px 0px 10px;
+    justify-content: space-around;
+    /* background-color: aliceblue; */
+    border-radius: 12px 12px 0px 0px;
+}
+.select-amount-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.select-amount-buttons h4{
+    padding: 5px;
+    border: 1px solid grey;
+    margin: 5px;
+    border-radius: 10px;
+}
+.present{
+    background-color: blue;
+    color: white;
+    margin-bottom: 0px;
+}
+.sip-input{
+    height: 40px;
+    width: 150px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.nav-for-sip-onetime h4{
+    font-weight: bold;
+    font-size: small;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: auto;
+    height: auto;
+    border-radius: 12px ;
+}
+.invest-search{
+    height: 30px;
+    width: 160px;
+    border-radius: 6px;
+}
+.invest-smallDetails{
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+.invest-amount-selector{
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    /* background-color: aliceblue; */
+    height: 25vw;
+    width: 20vw;
+    border-radius: 0px 0px 12px 12px;
+    margin-top: 0px;
+}

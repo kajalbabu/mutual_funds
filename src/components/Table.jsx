@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useMemo } from "react";
 import './Table.css';
 import Popup from "../components/Popup";
 import { useState } from "react";
-export default function Table(){
-    const [isHidden, setIsHidden] = useState(true);
+import {UserData} from "../components/data/UserData";
+function Table(){
     
+    const [optionFailed, setOptionFailed] = useState(false);
+    const [optionSuccess, setOptionSuccess] = useState(false);
+    const [isHidden, setIsHidden] = useState(true);
+    const [status, setStatus] = useState('');
+    const [dateFrom, setDateFrom] = useState("0/0/0");
+    const [dateTo, setDateTo] = useState("90000/12/31");
+    const [btnName, setBtnName] = useState('Purchase');
+    const [mainNavButton, setainNavButton] = useState('Trade');
+    const [purchasedClass, setPurchasedClass] = useState('selected-button');
+    const [withdrawClass, setWithdrawClass] = useState('selected');
+    const [switchClass, setSwitchClass] = useState('selected');
+    
+    const classNameForSelectedButton = "selected-button";
+
+
     const toggleVisibility = () => {
       setIsHidden(!isHidden);
     };
@@ -26,23 +41,38 @@ export default function Table(){
         setSearchTerm(event.target.value);
     }
     // 3 arrow functions which make state changes on click
-    const toggleComponentPurchase = () => {
+    const toggleComponentPurchase = (event) => {
         console.log("i am here toggleComponentPurchase");
+        setPurchasedClass(classNameForSelectedButton);
+        setWithdrawClass("nothing");
+        setSwitchClass("nothing");
         setWithdrawComponent(false);
         setPurchaseComponent(true);
         setSwitchComponent(false);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     const toggleComponentWithdraw = () => {
         console.log("i am here toggleComponentWithdraw");
+        setWithdrawClass(classNameForSelectedButton);
+        setPurchasedClass("nothing");
+        setSwitchClass("nothing");
         setWithdrawComponent(true);
         setPurchaseComponent(false);
         setSwitchComponent(false);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     const toggleComponentSwitch = () => {
         console.log("i am here toggleComponentSwitch");
+        setPurchasedClass("nothing");
+        setWithdrawClass("nothing");
+        setSwitchClass(classNameForSelectedButton)
         setWithdrawComponent(false);
         setPurchaseComponent(false);
         setSwitchComponent(true);
+        // console.log("class names purchase",purchasedClass, " withdraw ",
+        //     withdrawClass, " switch ",switchClass);
     };
     // data need to make headers and table rows
     // header data
@@ -50,163 +80,7 @@ export default function Table(){
                             headThree:'Order Date',headFour:'Order Type',
                             headFive:'Amount',headSix:'FreshOrder / Investment',
                             headSeven:'Order Status'}]
-    const stockDetailsPurchased= [
-        {
-            key : 'Purchased added',
-            fundName : 'Purchased added',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo1.svg'
-        },
-        {
-            key : 'one',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo1.svg'
-        },
-        {
-            key : 'two',
-            fundName : 'icici',
-            clientCode : 'B53587',
-            OrderDate : '23/01/2024',
-            orderType : 'SIP',
-            amount : 100,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo3.svg'
-        },
-        {
-            key : 'three',
-            fundName : 'sbi Fund',
-            clientCode : 'B53588',
-            OrderDate : '28/02/2024',
-            orderType : 'Lumpsum',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo2.svg'
-        },
-        {
-            key : 'four',
-            fundName : 'Bhandhan Fund',
-            clientCode : 'B57586',
-            OrderDate : '22/02/2024',
-            orderType : 'intraday',
-            amount : 1008,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Purchased',
-            imageUrl : 'logo2.svg'
-        },
-        {
-            key : 'five',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo3.svg'
-        },
-        {
-            key : 'six',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Switch',
-            imageUrl : 'logo1.svg'
-        },{
-            key : 'oneTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Failed',
-            category:'Purchased',
-            imageUrl : 'logo2.svg'
-        },
-        {
-            key : 'twoTwo',
-            fundName : 'icici',
-            clientCode : 'B53587',
-            OrderDate : '23/01/2024',
-            orderType : 'SIP',
-            amount : 100,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo2.svg'
-        },
-        {
-            key : 'threeTwo',
-            fundName : 'sbi Fund',
-            clientCode : 'B53588',
-            OrderDate : '28/02/2024',
-            orderType : 'Lumpsum',
-            amount : 5000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo3.svg'
-        },
-        {
-            key : 'fourTwo',
-            fundName : 'Bhandhan Fund',
-            clientCode : 'B57586',
-            OrderDate : '22/02/2024',
-            orderType : 'intraday',
-            amount : 1008,
-            orderCategory : 'NA',
-            orderStatus : 'Success',
-            category:'Purchased',
-            imageUrl : 'logo1.svg'
-        },
-        {
-            key : 'fiveTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'Fresh Order',
-            orderStatus : 'Success',
-            category:'Withdraw',
-            imageUrl : 'logo1.svg'
-        },
-        {
-            key : 'sixTwo',
-            fundName : 'Bhandhan Liquid',
-            clientCode : 'B53586',
-            OrderDate : '23/02/2024',
-            orderType : 'Lumpsum',
-            amount : 1000,
-            orderCategory : 'NA',
-            orderStatus : 'Failed',
-            category:'Switch',
-            imageUrl : 'logo2.svg'
-        }
-    ]
+   
     // table data
     const StocksTable = ({stocksDataArray,stocksHeaderArray,category,itemsPerPage})=>{
         const [currentPage, setCurrentPage] = useState(1);
@@ -272,30 +146,77 @@ export default function Table(){
     }
     
     // filtered data rows
-    const filteredRows =
+    let filteredRows =
         searchTerm === ""
-          ? stockDetailsPurchased
-          : stockDetailsPurchased.filter((item) => {
+          ? UserData : UserData.filter((item) => {
               if (
-                item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (item.fundName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 item.clientCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase())
+                item.orderType.toLocaleLowerCase().includes(searchTerm.toLowerCase())) ||
+                item.status.toLocaleLowerCase === status
               ){
+                console.log('true');
+                console.log('(item.OrderDate>=dateFrom, item.OrderDate<=dateTo)',dateFrom,dateTo);
+                // console.log('true (item.OrderDate>=dateFrom && item.OrderDate<=dateTo)',(item.OrderDate>=dateFrom && item.OrderDate<=dateTo));
                 return true;
               }
               else{
+                console.log('false');
+                console.log('(item.OrderDate>=dateFrom, item.OrderDate<=dateTo)',dateFrom<dateTo);
+                // console.log('false (item.OrderDate>=dateFrom && item.OrderDate<=dateTo)',(item.OrderDate>=dateFrom && item.OrderDate<=dateTo));
                 return false;
               } 
     });
+    if((optionFailed===true && optionSuccess===true) || (optionFailed===false && optionSuccess===false) ){
+        filteredRows=filteredRows;
+    }else{
+        if(optionFailed===true){
+            filteredRows = filteredRows.filter(
+                (item)=>{
+                    console.log("option success true",item);
+                    if(item.orderStatus==="Failed"){
+                        console.log("true ",item.status);
+                        return true;
+                    }else{
+                        console.log("false ",item.status);
+                        return false;
+                    }
+                }
+            )
+        }else{
+            filteredRows = filteredRows.filter(
+                (item)=>{
+                    console.log("option success true",item);
+                    if(item.orderStatus==="Success"){
+                        console.log("true ",item.status);
+                        return true;
+                    }else{
+                        console.log("false ",item.status);
+                        return false;
+                    }
+                }
+            )
+        }
+    }
+    
+    filteredRows= filteredRows.filter(
+        (item)=>{
+            if(item.OrderDate>=dateFrom && item.OrderDate<=dateTo){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    )
     
     return(
         <div className="OrderBookComponent">
             
-            <h4>Order Book</h4>
+            <h4 className="order-book-h2">Order Book</h4>
             <div className="navigation-section">
-                <button onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
-                <button onClick={toggleComponentWithdraw} id="Withdraw">Withdraw</button>
-                <button onClick={toggleComponentSwitch} id="Switch">Switch</button>
+                <button className={purchasedClass} onClick={toggleComponentPurchase} id="Purchase">Purchase</button>
+                <button className={withdrawClass} onClick={toggleComponentWithdraw} id="Withdraw">Withdraw</button>
+                <button className={switchClass} onClick={toggleComponentSwitch} id="Switch">Switch</button>
             </div>
             <input onChange={handleInputChange} className="search-input" id="searchInput" type="text" placeholder="Search client name / code "/>
             
@@ -308,7 +229,10 @@ export default function Table(){
                     </select>
                     </label>
             <button className="filterButton" onClick={toggleVisibility}><img className="filterImage" src="filter-icon.svg" alt="filter" />Filters</button>
-                    {isHidden ? null : <Popup />
+                    {isHidden ? null : <Popup optionFailed ={optionFailed} setOptionFailed={setOptionFailed}
+                     setStatus = {setStatus} optionSuccess={optionSuccess} setOptionSuccess={setOptionSuccess}
+                     setDateFrom={setDateFrom} setDateTo = {setDateTo} />
+                    
                     }
             <hr/>
             <div className="table">
@@ -319,3 +243,4 @@ export default function Table(){
         </div>
     )
 }
+export default Table;

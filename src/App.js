@@ -8,20 +8,30 @@ import Invest from "./pages/Invest/Invest";
 import { Link } from "react-router-dom";
 
 function App() {
-  var buttonStyles = {
-    backgroundColor: "white",
-    color: "blue",
-  };
+
+  const [tradeBtnClass, setTradeBtnClass] = useState("applyCss");
+  const [orderBookBtnClass, setOrderBookBtnClass] = useState("dontApplyCss");
+
+  const handleMainButtonTradeState = ()=>{
+     setTradeBtnClass("applyCss");
+     setOrderBookBtnClass("dontApplyCss");
+  }
+  const handleMainButtonOrderBookState = ()=>{
+    setTradeBtnClass("dontApplyCss");
+    setOrderBookBtnClass("applyCss");
+ }
+  
+  
 
   return (
     <div className="App">
       <Router>
         <header>
           <Link to={"/"}>
-            <button style={buttonStyles}>Trade</button>
+            <button onClick={handleMainButtonTradeState} className={tradeBtnClass} >Trade</button>
           </Link>
           <Link to={"/order"}>
-            <button style={buttonStyles}>Order Book</button>
+            <button onClick={handleMainButtonOrderBookState} className={orderBookBtnClass}>Order Book</button>
           </Link>
         </header>
         <Routes>
