@@ -1,4 +1,4 @@
-import TradeFilter from "../components/TradeFilter";
+import TradeFilter from "../components/TableFilter/TradeFilter";
 import { data } from "../components/data";
 
 function Trade() {

@@ -9,6 +9,9 @@
   box-shadow: 1px 1px 5px rgb(206, 205, 205);
   border-radius: 3px;
 }
+.trade-filter h2{
+  color: blue;
+}
 .trade-filter-buttons {
   display: flex;
   gap: 10px;
@@ -16,12 +19,12 @@
   width: 100%;
   overflow-x: auto;
 }
-.button {
+.buttons {
   background-color: white;
   border: 1px solid rgb(226, 226, 226);
   color: gray;
 }
-.button:hover {
+.buttons:hover {
   background-color: rgb(236, 235, 235);
 }
 .selected-button,

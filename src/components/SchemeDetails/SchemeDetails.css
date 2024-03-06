@@ -1,0 +1,44 @@
+.scheme-details{
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+    width: 70%;
+    overflow: auto;
+}
+.scheme-details h4{
+    margin: 0;
+    color: black;
+}
+.basic-info-body{
+    display: flex;
+    flex-direction: column;
+    
+}
+.basic-info-body table{
+    /* background-color: red; */
+    border-radius: 0;
+
+}
+.basic-info-body td{
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+.basic-info-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.basic-info-data span{
+    display: block;
+}
+.basic-info-data p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+.left{
+    margin-right: 40px;
+}
+.right{
+    margin-left: 40px;
+}

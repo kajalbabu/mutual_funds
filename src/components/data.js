@@ -1,6 +1,7 @@
 
 export const data = [
     {
+      id: 1,
       icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",
@@ -15,6 +16,7 @@ export const data = [
       minSipInvestment: "₹1,000",
     },
     {
+      id:2,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "MID CAP FUND",
@@ -29,6 +31,7 @@ export const data = [
       minSipInvestment: "₹100",
     },
     {
+      id:3,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "FLEXI CAP FUND",
@@ -43,6 +46,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
+      id:4,
       icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",
@@ -57,6 +61,7 @@ export const data = [
       minSipInvestment: "₹1,000"
     },
     {
+      id:5,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "SMALL CAP FUND",
@@ -71,6 +76,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
+      id:6,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "MID CAP FUND",
@@ -85,6 +91,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
+      id:7,
       icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "ELSS",
@@ -99,6 +106,7 @@ export const data = [
       minSipInvestment: "₹500"
     },
     {
+      id:8,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "ELSS",
@@ -113,6 +121,7 @@ export const data = [
       minSipInvestment: "₹500"
     },
     {
+      id:9,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "EQUITY",
       subCategoryName: "ELSS",
@@ -127,6 +136,7 @@ export const data = [
       minSipInvestment: "₹500"
     },
     {
+      id:10,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "DEBT",
       subCategoryName: "SHORT DURATION FUND",
@@ -141,6 +151,7 @@ export const data = [
       minSipInvestment: "₹500"
     },
     {
+      id:11,
       icon: "./assets/hdfc-bank-logo.svg",
       investmentType: "DEBT",
       subCategoryName: "CORPORATE BOND FUND",
@@ -155,6 +166,7 @@ export const data = [
       minSipInvestment: "₹100"
     },
     {
+      id:12,
       icon: "./assets/icici.svg",
       investmentType: "DEBT",
       subCategoryName: "SHORT DURATION FUND",
@@ -169,6 +181,7 @@ export const data = [
       minSipInvestment: "₹1,000"
     },
     {
+      id:13,
       icon: "./assets/quant.svg",
       investmentType: "EQUITY",
       subCategoryName: "SECTORAL/THEMATIC",

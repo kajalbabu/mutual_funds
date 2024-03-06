@@ -22,7 +22,7 @@ function TradeFilterBtns({ category, setCategory }) {
           return (
             <button
               key={index}
-              className="button default"
+              className="buttons default"
               onClick={() => {
                 setCategory(item);
               }}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./TradeTable.css";
-import Button from "./Button";
+import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
 function TradeTable({ filteredData }) {
@@ -53,7 +53,7 @@ function TradeTable({ filteredData }) {
               <td>{item.currentNav}</td>
               <td>{item.minSipInvestment}</td>
               <td>
-                <Link to={"/invest"}>
+                <Link to={"/invest"} state={{id:item.id}}>
                   <Button />
                 </Link>
               </td>

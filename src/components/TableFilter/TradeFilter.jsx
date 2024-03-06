@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TradeFilter.css";
-import TradeTable from "./TradeTable";
+import TradeTable from "../TradeTable/TradeTable";
 import TradeFilterBtns from "./TradeFilterBtns";
 function TradeFilter({ data }) {
   const [searchVal, setSearchVal] = useState("");
@@ -26,11 +26,9 @@ function TradeFilter({ data }) {
         return data.filter((item) => {
           return item.fundName.toLowerCase().includes(searchVal.toLowerCase());
         });
-      }
-      else{
+      } else {
         return data;
       }
-      
     }
   }
 
