@@ -8,6 +8,7 @@ import RiskAndRating from "../../components/RiskAndRating/RiskAndRating";
 import Overview from "../../components/Overveiw";
 import CalculateReturns from "../../components/CalculateReturns";
 import YourInvestmentPad from "../../components/YourInvestmentPad";
+import SimilarFunds from "../../components/SimilarFunds/SimilarFunds";
 
 function Invest() {
   const fundKey = "sixTwo";
@@ -29,6 +30,7 @@ function Invest() {
         <SchemeDetails />
         <FundManager />
         <RiskAndRating />
+        <SimilarFunds/>
       </div>
       <YourInvestmentPad />
     </div>

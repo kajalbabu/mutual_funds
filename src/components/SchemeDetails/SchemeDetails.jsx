@@ -49,10 +49,28 @@ function SchemeDetails() {
             </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
+            <td>
+              <div className="basic-info-tax left">
+                <span className="material-symbols-outlined">logout</span>
+                <div className="tax-body">
+                  <p>Exit Load</p>
+                  <p>1.00% - If redeemed/switchedout within 1 Year from the date of allotment. Nil - If redeemed/switchedout after 1 year from the date of allotment.</p>
+                </div>
+              </div>
+            </td>
+            <td className="tax-implication-td">
+              <div className="basic-info-tax right">
+              <span class="material-symbols-outlined">payments</span>
+              <div className="tax-body">
+                  <p>Tax Implications</p>
+                  <p>Withdrawal within 1 year <br></br>Exit load + 15% tax on gains</p>
+                  <p>Withdrawal after 1 year <br></br>10% tax on gains over ₹1 Lakh per financial year</p>
+                </div>
+              </div>
+            </td>
           </tr>
         </table>
+        <p className="basic-info-btn">LEARN ABOUT TERMS</p>
       </div>
     </div>
   );
